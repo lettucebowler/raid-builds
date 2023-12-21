@@ -2,17 +2,43 @@
 </script>
 
 <svelte:head>
+	<link
+		rel="preload"
+		href="https://fonts.cdnfonts.com/s/60110/Rift%20Bold.woff"
+		crossorigin="anonymous"
+		as="font"
+		type="font/woff"
+	/>
+	<link
+		rel="preload"
+		href="https://fonts.cdnfonts.com/s/60110/Rift%20Medium.woff"
+		crossorigin="anonymous"
+		as="font"
+		type="font/woff"
+	/>
+	<link
+		rel="preload"
+		href="https://fonts.cdnfonts.com/s/60110/Rift%20Regular.woff"
+		crossorigin="anonymous"
+		as="font"
+		type="font/woff"
+	/>
 	<link href="https://fonts.cdnfonts.com/css/rift" rel="stylesheet" />
 </svelte:head>
 <div class="grid aspect-square h-[1080px] w-[1080px] flex-auto grid-rows-[190px_1fr_5rem]">
-	<header class="bg-gradient-to-r from-amber-900 from-50% to-red-500 to-50%">
-		<div class="space-y-[2px] px-[1.8125rem] py-8 tracking-wide">
+	<header
+		class="flex justify-between gap-2 bg-gradient-to-r from-amber-900 from-50% to-red-500 to-50% py-2 pr-8"
+	>
+		<div class="space-y-[2px] px-[1.8125rem] py-6 tracking-wide">
 			<h1 class="text-[72px] font-bold leading-none text-primary">gholdengo raid build</h1>
 			<p
 				class="text-[3.25rem] font-medium uppercase leading-none tracking-[0.0125em] text-secondary"
 			>
 				builds for 7-star ice iron bundle
 			</p>
+		</div>
+		<div>
+			<img src="/game_logo.webp" class="h-full" />
 		</div>
 	</header>
 	<div class="flex flex-auto flex-col px-10 py-4">
