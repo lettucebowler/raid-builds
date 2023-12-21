@@ -2,4 +2,8 @@
 	let { data } = $props();
 </script>
 
-{data.build}
+<p>{data.build}</p>
+
+<style>
+
+</style>
