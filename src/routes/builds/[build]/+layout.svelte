@@ -55,8 +55,18 @@
 				<img src="/game_logo.webp" class="mr-[28px] h-full" alt="Game Logo" />
 			</div>
 		</header>
-		<div class="flex flex-auto flex-col px-10 py-4">
-			<div class="flex-auto border-[7px] border-[#cab42a]">
+		<div class="relative flex flex-auto flex-col px-10 py-4">
+			<fieldset
+				class="absolute left-[56px] w-[782px] origin-top-left rotate-90 border-t-[7px] border-[#cab42a] pl-[32rem]"
+			>
+				<legend class="flex items-center px-3 text-base font-bold text-[#cab42a]">pkmncast</legend>
+			</fieldset>
+			<fieldset
+				class="absolute right-[56px] w-[782px] origin-top-right rotate-[270deg] border-t-[7px] border-[#cab42a] pl-[32rem]"
+			>
+				<legend class="flex items-center px-3 text-base font-bold text-[#cab42a]">pkmncast</legend>
+			</fieldset>
+			<div class="flex-auto border-b-[7px] border-t-[7px] border-[#cab42a]">
 				<slot />
 			</div>
 		</div>

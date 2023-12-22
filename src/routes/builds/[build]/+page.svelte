@@ -190,4 +190,8 @@
 	:global(strong) {
 		font-weight: 500;
 	}
+
+	:global(body) {
+		background-color: black;
+	}
 </style>
