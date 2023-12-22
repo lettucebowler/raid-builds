@@ -13,7 +13,6 @@ export type BuildInfo = {
 	};
 	teraType: string;
 	item: {
-		id: number;
 		name: string;
 		info_url: string;
 	};
@@ -38,6 +37,7 @@ export type BuildInfo = {
 		spe: number;
 	};
 	background_image?: string;
+	raid_tip?: string;
 };
 export const builds: { [x: string]: BuildInfo } = {
 	'gholdengo-iron-bundle-ice': {
@@ -55,7 +55,6 @@ export const builds: { [x: string]: BuildInfo } = {
 		},
 		teraType: 'steel',
 		item: {
-			id: 253,
 			name: 'shell-bell',
 			info_url: 'https://bulbapedia.bulbagarden.net/wiki/Shell_Bell'
 		},
@@ -101,7 +100,10 @@ export const builds: { [x: string]: BuildInfo } = {
 			spd: 60,
 			spe: 0
 		},
-		background_image: 'https://scarletviolet.pokemon.com/_images/news/jan_12/p03_02.jpg'
+		background_image: 'https://scarletviolet.pokemon.com/_images/news/jan_12/p03_02.jpg',
+		raid_tip: /* HTML */ `while <strong class="text-steel">make it rain</strong> is stronger than
+			<strong class="text-steel">flash cannon</strong>, it will need
+			<strong class="text-dark">nasty plot</strong> weaved in between to maximize sp. atk drops.`
 	},
 	'frosmoth-iron-bundle-ice': {
 		title: 'frosmoth raid build',
@@ -119,8 +121,7 @@ export const builds: { [x: string]: BuildInfo } = {
 		teraType: 'steel',
 		item: {
 			name: 'soft-clay',
-			info_url: 'https://bulbapedia.bulbagarden.net/wiki/Light_Clay',
-			id: 1
+			info_url: 'https://bulbapedia.bulbagarden.net/wiki/Light_Clay'
 		},
 		role: {
 			name: 'all-rounder',
@@ -159,9 +160,9 @@ export const builds: { [x: string]: BuildInfo } = {
 		effort_values: {
 			hp: 252,
 			atk: 0,
-			def: 0,
-			spa: 196,
-			spd: 60,
+			def: 20,
+			spa: 236,
+			spd: 0,
 			spe: 0
 		},
 		background_image: 'https://www.serebii.net/scarletviolet/powdersnowcourse.jpg'

@@ -24,6 +24,13 @@
 		as="font"
 		type="font/woff"
 	/>
+	<link
+		rel="preload"
+		href="https://fonts.cdnfonts.com/s/60110/Rift%20Light.woff"
+		crossorigin="anonymous"
+		as="font"
+		type="font/woff"
+	/>
 	<link href="https://fonts.cdnfonts.com/css/rift" rel="stylesheet" />
 </svelte:head>
 <div
@@ -31,7 +38,7 @@
 	class="background bg-cover bg-center"
 >
 	<div
-		class="grid aspect-square h-[1080px] w-[1080px] flex-auto grid-rows-[190px_1fr_5rem] backdrop-blur-lg"
+		class="grid aspect-square h-[1080px] w-[1080px] flex-auto grid-rows-[190px_1fr_76px] text-[48px] leading-none backdrop-blur-lg"
 	>
 		<header
 			class="flex justify-between gap-2 bg-gradient-to-r from-amber-900 from-50% to-red-500 to-50%"
@@ -54,9 +61,11 @@
 			</div>
 		</div>
 		<footer
-			class="flex w-full items-center justify-center gap-8 bg-background-dark text-5xl font-medium text-primary"
+			class="flex w-full items-center justify-center gap-8 bg-background-dark font-medium text-primary"
 		>
-			<a href="https://pkmncast.com" target="_blank">PKMNCAST.com</a>
+			<a href="https://pkmncast.com" target="_blank"
+				>PKMNCAST.<span class="text-[40px]">com</span></a
+			>
 			<p>/</p>
 			<ul class="flex items-center justify-center gap-2 *:text-primary">
 				<li>
@@ -131,7 +140,7 @@
 				</li>
 			</ul>
 			<p>/</p>
-			<p class="text-4xl font-medium">@PKMNCAST</p>
+			<p class="flex items-center gap-1 font-medium">@<span class="text-[40px]">PKMNCAST</span></p>
 		</footer>
 	</div>
 </div>
