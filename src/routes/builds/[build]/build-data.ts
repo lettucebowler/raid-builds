@@ -165,6 +165,10 @@ export const builds: { [x: string]: BuildInfo } = {
 			spd: 0,
 			spe: 0
 		},
-		background_image: 'https://www.serebii.net/scarletviolet/powdersnowcourse.jpg'
+		background_image: 'https://www.serebii.net/scarletviolet/powdersnowcourse.jpg',
+		raid_tip: /* HTML */ `if the raid boss opens with snow, we open with
+			<strong class="text-ice">aurora veil</strong>,
+			<strong class="text-bug">struggle bug</strong> to tera, then steel-type
+			<strong>tera blast</strong>.`
 	}
 };

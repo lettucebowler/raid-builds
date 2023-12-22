@@ -13,7 +13,9 @@ export default {
 				'background-light': 'rgb(var(--color-background-light) / <alpha-value>)',
 				accent: 'rgb(var(--color-accent) / <alpha-value>)',
 				steel: '#60a1b8',
-				dark: '#635858'
+				dark: '#635858',
+				bug: '#aac63b',
+				ice: '#42d8fe'
 			},
 			backgroundImage: {
 				'tera-raid': `url('/tera-raid.webp')`

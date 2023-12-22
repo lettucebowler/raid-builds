@@ -1,5 +1,24 @@
 <script lang="ts">
-	export let type: 'bug' | 'dark' | 'dragon' | 'electric' | 'fairy' | 'fighting' | 'fire' | 'flying' | 'ghost' | 'grass' | 'ground' | 'ice' | 'normal' | 'poison' | 'psychic' | 'rock' | 'steel' | 'stellar' | 'water' = 'normal';
+	export let type:
+		| 'bug'
+		| 'dark'
+		| 'dragon'
+		| 'electric'
+		| 'fairy'
+		| 'fighting'
+		| 'fire'
+		| 'flying'
+		| 'ghost'
+		| 'grass'
+		| 'ground'
+		| 'ice'
+		| 'normal'
+		| 'poison'
+		| 'psychic'
+		| 'rock'
+		| 'steel'
+		| 'stellar'
+		| 'water' = 'normal';
 	export let name = 'tackle';
 
 	import bug from '$lib/assets/images/move-types/bug.png';
@@ -41,11 +60,11 @@
 		rock,
 		steel,
 		stellar,
-		water,
-	}
+		water
+	};
 </script>
 
 <figure class="grid grid-cols-[44px_1fr] gap-4 text-[36px] font-bold leading-none text-white">
-	<img src="{images[type]}" alt={type} class="h-11" />
+	<img src={images[type]} alt={type} class="h-11" />
 	<figcaption class="grid items-center">{name}</figcaption>
 </figure>
