@@ -7,3 +7,22 @@
 		font-family: 'Rift', sans-serif;
 	}
 }
+
+@layer base {
+	:root {
+		--color-accent: 50 184 228;
+		--color-primary: 250 200 6;
+		--color-secondary: 193 112 204;
+		--color-background-dark: 35 34 50;
+		--color-background-darker: 30 29 45;
+		--color-background: 21 34 51;
+		--color-background-light: 46 56 74;
+
+		--color-hp: #82ca90;
+		--color-def: #caa493;
+		--color-spa: #b47ebf;
+		--color-spd: #d9d99e;
+		--color-atk: #ce777b;
+		--color-spe: #9fdef0;
+	}
+}

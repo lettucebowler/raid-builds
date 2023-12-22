@@ -1,27 +1,130 @@
 <script lang="ts">
+	import Move from './Move.svelte';
+	import NoteCard from './NoteCard.svelte';
+	import Triangle from './Triangle.svelte';
+
 	export let data;
 </script>
 
-<div class="flex flex-col gap-2 p-5">
+<div class="flex flex-col gap-4 p-5">
 	<div
-		class="top-box mx-auto flex h-[152px] w-[640px] justify-between gap-8 rounded-2xl bg-red-500 p-1"
+		id="species-ability-and-item"
+		class="top-box mx-auto flex w-[640px] justify-between gap-8 rounded-2xl drop-shadow-[4px_5px_4px_rgba(0,_0,_0,_0.5)]"
 	>
-		<div class="ml-3 mt-2.5">
-			<div class="flex items-end gap-4">
-				<h2 class="inline text-[52px] font-bold leading-none text-white">{data.pokemon.name}</h2>
-				<span class="text-3xl text-background-light"
-					>#<span class="text-5xl font-extrabold">{data.pokemon.id}</span></span
-				>
+		<div class="flex flex-col gap-2 pb-4 pl-5 pt-3">
+			<div class="absolute left-[-50px] top-1/2 top-[calc(50%_-_40px)] h-20 w-20">
+				<Triangle />
 			</div>
-			<div class="text-[1.75rem] leading-tight text-white">ability: {data.ability}</div>
+			<div>
+				<div class="flex items-end gap-4">
+					<h2 class="inline text-[52px] font-bold leading-none text-white">{data.pokemon.name}</h2>
+					<span class="text-3xl text-background-light"
+						>#<span class="text-5xl font-extrabold">{data.pokemon.id}</span></span
+					>
+				</div>
+				<div class="flex items-center gap-2 text-[1.75rem] leading-tight text-white">
+					ability: {data.ability.name}
+					{#if data.ability.hidden}
+						<span>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								class="h-6 w-6 fill-[#f4ed5f]"
+							>
+								<path
+									fill-rule="evenodd"
+									d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
+									clip-rule="evenodd"
+								/>
+							</svg>
+						</span>
+					{/if}
+				</div>
+			</div>
+			<div class="mt-auto flex h-[1.875rem] gap-2.5">
+				{#each data.pokemon.types.slice(0, 2) as type (type)}
+					<img alt={type} src="/pokemon-types/{type}.png" class="h-[1.875rem]" />
+				{/each}
+			</div>
 		</div>
-		<div class="w-32">
-			<img src="/menu-icons/{data.pokemon.id}.png" class="h-32 w-32" />
+		<div class="grid w-32 place-items-center">
+			<a href={data.pokemon.info_url} target="_blank">
+				<img
+					src="/menu-icons/{data.pokemon.id.toString().padStart(4, '0')}.png"
+					class="h-32 w-32"
+					alt={data.pokemon.name}
+				/></a
+			>
 		</div>
 		<div class="flex w-[4.5rem] flex-col items-end justify-between gap-2">
-			<img src="/tera-types/{data.teraType}.png" class="m-1 w-12" />
-			<img src="/items/{data.item}.png" class="w-[4.5rem]" />
+			<img
+				src="/tera-types/{data.teraType}.png"
+				class="mr-2.5 mt-2.5 w-12"
+				alt="tera type: {data.teraType}"
+			/>
+			<a href={data.item.info_url} target="_blank">
+				<img src="/items/{data.item.name}.png" class="w-[4.5rem]" alt="held item: {data.item}" />
+			</a>
 		</div>
+	</div>
+	<div id="moves-and-notes" class="mx-auto grid w-max grid-cols-2 gap-5">
+		<NoteCard
+			title="recommended moves"
+			--accent-color="#eed018"
+			class="min-w-96 drop-shadow-[4px_5px_4px_rgba(0,_0,_0,_0.5)]"
+		>
+			<div class="space-y-3">
+				{#each data.moves.slice(0, 4) as move}
+					<Move type={move.type} name={move.name} />
+				{/each}
+			</div>
+		</NoteCard>
+		<NoteCard
+			title="build notes"
+			--accent-color="#41e338"
+			class="min-w-96 drop-shadow-[4px_5px_4px_rgba(0,_0,_0,_0.5)]"
+		>
+			<div class="flex flex-col justify-between">
+				<figure class="grid grid-cols-[2.5rem_1fr] gap-1">
+					<img
+						src="/items/{data.nature.boosted_stat}-mint.png"
+						alt="{data.nature.name} mint"
+						class="h-10"
+					/>
+					<figcaption class="grid items-center text-[34px] leading-none text-white">
+						nature: {data.nature.name}
+					</figcaption>
+				</figure>
+				<figure class="grid grid-cols-[2.5rem_1fr] gap-1">
+					<img src="/items/special-attack-mint.png" alt="modest mint" class="h-10" />
+					<figcaption class="grid items-center text-[34px] leading-none text-white">
+						<span><span class="text-[#d9ce8c]">role:</span> {data.role.name}</span>
+					</figcaption>
+				</figure>
+				<h3 class="text-2xl leading-normal text-white">other workable moves</h3>
+				<div class="space-y-2">
+					{#each data.moves.slice(4) as move}
+						<Move type={move.type} name={move.name} />
+					{/each}
+				</div>
+			</div>
+		</NoteCard>
+	</div>
+	<div
+		id="evs"
+		class="mx-auto flex w-[648px] justify-center gap-2 rounded-2xl bg-background p-2 text-center text-4xl text-white"
+	>
+		<span class="space-x-2">
+			EVS:
+			{#each Object.entries(data.effort_values).filter(([state, value]) => !!value) as ev, i (ev)}
+				{#if i}
+					<span>/</span>
+				{/if}
+				<span style="--text-color: var(--color-{ev[0]})" class="uppsercase text-[--text-color]"
+					>{ev[1]} {ev[0]}</span
+				>
+			{/each}
+		</span>
 	</div>
 </div>
 
@@ -29,19 +132,19 @@
 	.top-box {
 		background-image: linear-gradient(
 			-45deg,
-			theme(colors.accent),
+			rgb(var(--color-accent) / 85%),
 			8%,
-			theme(colors.background),
+			rgb(var(--color-background) / 85%),
 			8%,
-			theme(colors.background),
+			rgb(var(--color-background) / 85%),
 			34%,
-			theme(colors.accent),
+			rgb(var(--color-accent) / 85%),
 			34%,
-			theme(colors.accent),
+			rgb(var(--color-accent) / 85%),
 			38%,
-			theme(colors.accent),
+			rgb(var(--color-accent) / 85%),
 			38%,
-			theme(colors.background)
+			rgb(var(--color-background) / 85%)
 		);
 	}
 </style>

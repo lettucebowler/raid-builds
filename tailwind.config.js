@@ -5,13 +5,16 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				primary: '#fac806',
-				secondary: '#c170cc',
-				'background-dark': '#232232',
-				'background-darker': '#1e1d2d',
-				background: '#152233',
-				'background-light': '#2e384a',
-				accent: '#32b8e4'
+				primary: 'rgb(var(--color-primary) / <alpha-value>)',
+				secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
+				'background-dark': 'rgb(var(--color-background-dark) / <alpha-value>)',
+				'background-darker': 'rgb(var(--color-background-darker) / <alpha-value>)',
+				background: 'rgb(var(--color-background) / <alpha-value>)',
+				'background-light': 'rgb(var(--color-background-light) / <alpha-value>)',
+				accent: 'rgb(var(--color-accent) / <alpha-value>)'
+			},
+			backgroundImage: {
+				'tera-raid': `url('/tera-raid.webp')`
 			}
 		}
 	},
