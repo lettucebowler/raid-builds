@@ -40,6 +40,7 @@
 	import steel from '$lib/assets/images/move-types/steel.png';
 	import stellar from '$lib/assets/images/move-types/stellar.png';
 	import water from '$lib/assets/images/move-types/water.png';
+	import TypeBox from './TypeBox.svelte';
 
 	const images = {
 		bug,
@@ -65,6 +66,6 @@
 </script>
 
 <figure class="grid grid-cols-[44px_1fr] gap-4 text-[36px] font-bold leading-none text-white">
-	<img src={images[type]} alt={type} class="h-11" />
+	<TypeBox {type} />
 	<figcaption class="grid items-center">{name}</figcaption>
 </figure>
