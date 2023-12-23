@@ -1,13 +1,13 @@
 <script lang="ts">
 	import type { PokemonType } from '$lib/types/types';
-	export let type: PokemonType;
 
+	export let type: PokemonType;
 	const modules: { [x: string]: { default: string } } = import.meta.glob(
-		'$lib/assets/images/move-types/*.png',
+		'$lib/assets/images/pokemon-types/*.png',
 		{
 			query: {
-				w: '44',
-				h: '44',
+				w: '150',
+				h: '30',
 				format: 'webp'
 			},
 			eager: true
@@ -16,7 +16,7 @@
 </script>
 
 <img
-	src={modules[`/src/lib/assets/images/move-types/${type}.png`].default}
+	src={modules[`/src/lib/assets/images/pokemon-types/${type}.png`].default}
 	alt={type}
-	class="h-11 w-11"
+	class="h-[30px] w-[150px]"
 />

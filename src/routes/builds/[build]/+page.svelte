@@ -2,6 +2,8 @@
 	import Move from './Move.svelte';
 	import NoteCard from './NoteCard.svelte';
 	import Triangle from './Triangle.svelte';
+	import TypeGem from './TypeGem.svelte';
+	import TypePill from './TypePill.svelte';
 
 	export let data;
 </script>
@@ -43,7 +45,8 @@
 			</div>
 			<div class="mt-auto flex h-[1.875rem] gap-2.5">
 				{#each data.pokemon.types.slice(0, 2) as type (type)}
-					<img alt={type} src="/pokemon-types/{type}.png" class="h-[1.875rem]" />
+					<TypePill {type} />
+					<!-- <img alt={type} src="/pokemon-types/{type}.png" class="h-[1.875rem]" /> -->
 				{/each}
 			</div>
 		</div>
@@ -62,11 +65,9 @@
 			class:justify-end={!data.teraType}
 		>
 			{#if data.teraType}
-				<img
-					src="/tera-types/{data.teraType}.png"
-					class="mr-2.5 mt-2.5 w-12"
-					alt="tera type: {data.teraType}"
-				/>
+				<div class="mr-2.5 mt-2.5">
+					<TypeGem type={data.teraType} />
+				</div>
 			{/if}
 			<a href={data.item.info_url} target="_blank">
 				<img src="/items/{data.item.name}.png" class="w-[4.5rem]" alt="held item: {data.item}" />

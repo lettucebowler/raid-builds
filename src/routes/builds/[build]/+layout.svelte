@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import game_logo from '$lib/assets/images/game_logo.webp';
 </script>
 
 <svelte:head>
@@ -52,7 +53,7 @@
 				</p>
 			</div>
 			<div class="py-1.5">
-				<img src="/game_logo.webp" class="mr-[28px] h-full" alt="Game Logo" />
+				<img src={game_logo} class="mr-[28px] h-full" alt="Game Logo" />
 			</div>
 		</header>
 		<div class="relative flex flex-auto flex-col px-10 py-4">

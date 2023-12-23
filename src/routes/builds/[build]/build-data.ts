@@ -1,3 +1,4 @@
+import type { PokemonType } from '$lib/types/types';
 export type BuildInfo = {
 	title: string;
 	category: string;
@@ -5,13 +6,13 @@ export type BuildInfo = {
 		name: string;
 		id: number;
 		info_url: string;
-		types: string[];
+		types: PokemonType[];
 	};
 	ability: {
 		name: string;
 		hidden: boolean;
 	};
-	teraType?: string;
+	teraType?: PokemonType;
 	item: {
 		name: string;
 		info_url: string;
@@ -25,7 +26,7 @@ export type BuildInfo = {
 		boosted_stat: string;
 	};
 	moves: {
-		type: string;
+		type: PokemonType;
 		name: string;
 	}[];
 	effort_values: {
