@@ -2,7 +2,7 @@
 	import type { PokemonType } from '$lib/types/types';
 
 	export let type: PokemonType;
-	const modules: { [x: string]: { default: string } } = import.meta.glob(
+	const modules: { [x: string]: string } = import.meta.glob(
 		'$lib/assets/images/pokemon-types/*.png',
 		{
 			query: {
@@ -10,13 +10,14 @@
 				h: '30',
 				format: 'webp'
 			},
-			eager: true
+			eager: true,
+			import: 'default'
 		}
 	);
 </script>
 
 <img
-	src={modules[`/src/lib/assets/images/pokemon-types/${type}.png`].default}
+	src={modules[`/src/lib/assets/images/pokemon-types/${type}.png`]}
 	alt={type}
 	class="h-[30px] w-[150px]"
 />

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Item from './Item.svelte';
+	import MenuSprite from './MenuSprite.svelte';
 	import Move from './Move.svelte';
 	import NoteCard from './NoteCard.svelte';
 	import Triangle from './Triangle.svelte';
@@ -52,12 +53,8 @@
 		</div>
 		<div class="grid w-32 place-items-center">
 			<a href={data.pokemon.info_url} target="_blank">
-				<img
-					src="/menu-icons/{data.pokemon.id.toString().padStart(4, '0')}.png"
-					class="h-32 w-32"
-					alt={data.pokemon.name}
-				/></a
-			>
+				<MenuSprite pokemon={data.pokemon.name} />
+			</a>
 		</div>
 		<div
 			class="flex w-[4.5rem] flex-col items-end gap-2"
