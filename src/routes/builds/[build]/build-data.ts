@@ -11,7 +11,7 @@ export type BuildInfo = {
 		name: string;
 		hidden: boolean;
 	};
-	teraType: string;
+	teraType?: string;
 	item: {
 		name: string;
 		info_url: string;
@@ -170,5 +170,71 @@ export const builds: { [x: string]: BuildInfo } = {
 			<strong class="text-ice">aurora veil</strong>,
 			<strong class="text-bug">struggle bug</strong> to tera, then steel-type
 			<strong>tera blast</strong>.`
+	},
+	'guardevoir-iron-bundle-ice': {
+		title: 'guardevoir raid build',
+		category: 'builds for 7-star ice iron bundle',
+		pokemon: {
+			name: 'guardevoir',
+			id: 282,
+			info_url: 'https://bulbapedia.bulbagarden.net/wiki/Gardevoir_(Pok%C3%A9mon)',
+			types: ['psychic', 'fairy']
+		},
+		ability: {
+			name: 'trace',
+			hidden: false
+		},
+		item: {
+			name: 'heat-rock',
+			info_url: 'https://bulbapedia.bulbagarden.net/wiki/Heat_Rock'
+		},
+		role: {
+			name: 'support',
+			emote: 'support'
+		},
+		nature: {
+			name: 'calm',
+			boosted_stat: 'special-defense'
+		},
+		moves: [
+			{
+				type: 'fire',
+				name: 'mystical fire'
+			},
+			{
+				type: 'fire',
+				name: 'sunny day'
+			},
+			{
+				type: 'fairy',
+				name: 'misty terrain'
+			},
+			{
+				type: 'water',
+				name: 'life dew'
+			},
+			{
+				type: 'normal',
+				name: 'helping hand'
+			},
+			{
+				type: 'psychic',
+				name: 'light screen'
+			}
+		],
+		effort_values: {
+			hp: 252,
+			atk: 0,
+			def: 0,
+			spa: 4,
+			spd: 252,
+			spe: 0
+		},
+		raid_tip: /* HTML */ `use <strong class="text-fairy">misty terrain</strong> to remove
+			<strong class="text-electric">electric terrain</strong> if set by boss.<br /><strong
+				class="text-fire"
+				>sunny day</strong
+			>
+			to remove snow and to stop freeze.`
 	}
 };

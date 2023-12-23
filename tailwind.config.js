@@ -15,7 +15,10 @@ export default {
 				steel: '#60a1b8',
 				dark: '#635858',
 				bug: '#aac63b',
-				ice: '#42d8fe'
+				ice: '#42d8fe',
+				fire: '#e62829',
+				electric: '#f3c13c',
+				fairy: '#eb71ee'
 			},
 			backgroundImage: {
 				'tera-raid': `url('/tera-raid.webp')`

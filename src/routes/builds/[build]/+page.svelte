@@ -56,12 +56,18 @@
 				/></a
 			>
 		</div>
-		<div class="flex w-[4.5rem] flex-col items-end justify-between gap-2">
-			<img
-				src="/tera-types/{data.teraType}.png"
-				class="mr-2.5 mt-2.5 w-12"
-				alt="tera type: {data.teraType}"
-			/>
+		<div
+			class="flex w-[4.5rem] flex-col items-end gap-2"
+			class:justify-between={!!data.teraType}
+			class:justify-end={!data.teraType}
+		>
+			{#if data.teraType}
+				<img
+					src="/tera-types/{data.teraType}.png"
+					class="mr-2.5 mt-2.5 w-12"
+					alt="tera type: {data.teraType}"
+				/>
+			{/if}
 			<a href={data.item.info_url} target="_blank">
 				<img src="/items/{data.item.name}.png" class="w-[4.5rem]" alt="held item: {data.item}" />
 			</a>
@@ -85,40 +91,44 @@
 			class="min-w-96 drop-shadow-[4px_5px_4px_rgba(0,_0,_0,_0.5)]"
 		>
 			<div class="flex h-full flex-col justify-between">
-				<figure class="grid grid-cols-[2.5rem_1fr] gap-1">
-					<img
-						src="/items/{data.nature.boosted_stat}-mint.png"
-						alt="{data.nature.name} mint"
-						class="h-10"
-					/>
-					<figcaption class="grid items-center text-[34px] leading-none text-white">
-						nature: {data.nature.name}
-					</figcaption>
-				</figure>
-				<figure class="grid grid-cols-[2.5rem_1fr] gap-1">
-					<div class="grid h-10 w-10 place-items-center text-primary">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 24 24"
-							fill="currentColor"
-							class="h-7 w-7"
-						>
-							<path
-								fill-rule="evenodd"
-								d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-								clip-rule="evenodd"
-							/>
-						</svg>
+				<div>
+					<figure class="grid grid-cols-[2.5rem_1fr] gap-1">
+						<img
+							src="/items/{data.nature.boosted_stat}-mint.png"
+							alt="{data.nature.name} mint"
+							class="h-10"
+						/>
+						<figcaption class="grid items-center text-[34px] leading-none text-white">
+							nature: {data.nature.name}
+						</figcaption>
+					</figure>
+					<figure class="grid grid-cols-[2.5rem_1fr] gap-1">
+						<div class="grid h-10 w-10 place-items-center text-primary">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+								class="h-7 w-7"
+							>
+								<path
+									fill-rule="evenodd"
+									d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+									clip-rule="evenodd"
+								/>
+							</svg>
+						</div>
+						<figcaption class="grid items-center text-[34px] leading-none text-white">
+							<span><span class="text-[#d9ce8c]">role:</span> {data.role.name}</span>
+						</figcaption>
+					</figure>
+				</div>
+				<div>
+					<h3 class="text-2xl leading-normal text-white">other workable moves</h3>
+					<div class="space-y-2">
+						{#each data.moves.slice(4) as move}
+							<Move type={move.type} name={move.name} />
+						{/each}
 					</div>
-					<figcaption class="grid items-center text-[34px] leading-none text-white">
-						<span><span class="text-[#d9ce8c]">role:</span> {data.role.name}</span>
-					</figcaption>
-				</figure>
-				<h3 class="text-2xl leading-normal text-white">other workable moves</h3>
-				<div class="space-y-2">
-					{#each data.moves.slice(4) as move}
-						<Move type={move.type} name={move.name} />
-					{/each}
 				</div>
 			</div>
 		</NoteCard>
@@ -188,7 +198,7 @@
 	}
 
 	:global(strong) {
-		font-weight: 500;
+		font-weight: 900;
 	}
 
 	:global(body) {
