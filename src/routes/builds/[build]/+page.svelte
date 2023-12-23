@@ -16,7 +16,7 @@
 		class="top-box mx-auto flex w-[640px] flex-auto justify-between gap-8 rounded-2xl drop-shadow-[4px_5px_4px_rgba(0,_0,_0,_0.5)]"
 	>
 		<div class="flex flex-col justify-between gap-2 pb-4 pl-5 pt-3">
-			<div class="absolute left-[-50px] top-1/2 top-[calc(50%_-_40px)] h-20 w-20 animate-wiggle">
+			<div class="absolute left-[-55px] top-[calc(50%_-_40px)] h-20 w-20 animate-wiggle">
 				<Triangle />
 			</div>
 			<div>
