@@ -22,6 +22,16 @@ export default {
 			},
 			backgroundImage: {
 				'tera-raid': `url('/tera-raid.webp')`
+			},
+			keyframes: {
+				wiggle: {
+					// '100%': { transform: 'translateX(0%)' },
+					'0%, 100%': { transform: 'translateX(-3%)' },
+					'50%': { transform: 'translateX(3%)' }
+				}
+			},
+			animation: {
+				wiggle: 'wiggle 1s ease-in-out infinite'
 			}
 		}
 	},
