@@ -1,10 +1,11 @@
 <script lang="ts">
 	export let item: string;
+	export let size: number = 72;
 
 	const modules: { [x: string]: string } = import.meta.glob('$lib/assets/images/items/*.png', {
 		query: {
-			w: '72',
-			h: '72',
+			w: '160',
+			h: '160',
 			format: 'webp'
 		},
 		eager: true,
@@ -13,7 +14,8 @@
 </script>
 
 <img
-	src={modules[`/src/lib/assets/images/items/${item}.png`]}
+	srcset={modules[`/src/lib/assets/images/items/${item}.png`]}
 	alt="held item: {item}"
-	class="h-[72px] w-[72px]"
+	style="--size: {size}"
+	class="h-[--size] w-[--size]"
 />

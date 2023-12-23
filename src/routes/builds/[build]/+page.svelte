@@ -22,8 +22,10 @@
 			<div>
 				<div class="flex items-end gap-4">
 					<h2 class="inline text-[52px] font-bold leading-none text-white">{data.pokemon.name}</h2>
-					<span class="text-3xl text-background-light"
-						>#<span class="text-5xl font-extrabold">{data.pokemon.id}</span></span
+					<span class="font-mono text-3xl text-background-light"
+						>#<span class="text-5xl font-extrabold"
+							>{data.pokemon.id.toString().padStart(4, '0')}</span
+						></span
 					>
 				</div>
 				<div class="flex items-center gap-2 text-[1.75rem] leading-tight text-white">
@@ -91,11 +93,7 @@
 			<div class="flex h-full flex-col justify-between">
 				<div>
 					<figure class="grid grid-cols-[2.5rem_1fr] gap-1">
-						<img
-							src="/items/{data.nature.boosted_stat}-mint.png"
-							alt="{data.nature.name} mint"
-							class="h-10"
-						/>
+						<Item item="{data.nature.boosted_stat}-mint" />
 						<figcaption class="grid items-center text-[34px] leading-none text-white">
 							nature: {data.nature.name}
 						</figcaption>

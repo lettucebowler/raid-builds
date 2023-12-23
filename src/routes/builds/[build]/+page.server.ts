@@ -1,5 +1,6 @@
 import { error } from '@sveltejs/kit';
 import { builds } from './build-data';
+import { dev } from '$app/environment';
 export const load = async (event) => {
 	const { build } = event.params;
 	const buildInfo = builds[build];
@@ -8,3 +9,5 @@ export const load = async (event) => {
 	}
 	return buildInfo;
 };
+
+// export const csr = dev;

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import game_logo from '$lib/assets/images/game_logo.webp';
+	import default_background from '$lib/assets/images/tera-raid.webp';
 </script>
 
 <svelte:head>
@@ -35,7 +36,9 @@
 	<link href="https://fonts.cdnfonts.com/css/rift" rel="stylesheet" />
 </svelte:head>
 <div
-	style={$page.data.background_image ? `--bg-url: url(${$page.data.background_image})` : undefined}
+	style:background-image="url({$page.data.background_image
+		? $page.data.background_image
+		: default_background})"
 	class="background bg-cover bg-center"
 >
 	<div
@@ -181,9 +184,5 @@
 			67%,
 			theme(colors.background-dark)
 		);
-	}
-
-	.background {
-		background-image: var(--bg-url, url('/tera-raid.webp'));
 	}
 </style>
