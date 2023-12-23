@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Item from './Item.svelte';
 	import Move from './Move.svelte';
 	import NoteCard from './NoteCard.svelte';
 	import Triangle from './Triangle.svelte';
@@ -46,7 +47,6 @@
 			<div class="mt-auto flex h-[1.875rem] gap-2.5">
 				{#each data.pokemon.types.slice(0, 2) as type (type)}
 					<TypePill {type} />
-					<!-- <img alt={type} src="/pokemon-types/{type}.png" class="h-[1.875rem]" /> -->
 				{/each}
 			</div>
 		</div>
@@ -70,7 +70,7 @@
 				</div>
 			{/if}
 			<a href={data.item.info_url} target="_blank">
-				<img src="/items/{data.item.name}.png" class="w-[4.5rem]" alt="held item: {data.item}" />
+				<Item item={data.item.name} />
 			</a>
 		</div>
 	</div>
@@ -136,7 +136,7 @@
 	</div>
 	<div
 		id="evs"
-		class="mx-auto flex w-[640px] flex-auto flex-col justify-center justify-center gap-2 rounded-2xl bg-background/90 p-2 text-center text-4xl text-white"
+		class="mx-auto flex w-[640px] flex-auto flex-col justify-center justify-center gap-2 rounded-2xl bg-background/90 p-2 text-center text-4xl text-white drop-shadow-[4px_5px_4px_rgba(0,_0,_0,_0.5)]"
 	>
 		<span class="space-x-2">
 			EVS:
@@ -153,7 +153,7 @@
 	{#if data.raid_tip}
 		<div
 			id="raid-tip"
-			class="mx-auto flex w-[640px] flex-auto flex-col justify-center rounded-2xl bg-background/85 p-2 px-8 pb-3 text-white"
+			class="mx-auto flex w-[640px] flex-auto flex-col justify-center rounded-2xl bg-background/85 p-2 px-8 pb-3 text-white drop-shadow-[4px_5px_4px_rgba(0,_0,_0,_0.5)]"
 		>
 			<header class="flex items-center gap-2">
 				<div class="grid grid-cols-1 grid-rows-1 place-items-center">
