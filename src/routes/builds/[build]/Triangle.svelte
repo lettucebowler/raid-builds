@@ -21,11 +21,6 @@
 		transform: rotate(0.25turn);
 	}
 
-	#gradient-horizontal {
-		--color-stop-1: #a770ef;
-		--color-stop-2: #cf8bf3;
-		--color-stop-3: #fdb99b;
-	}
 	#gradient-vertical {
 		--color-stop-1: #00c3ff;
 		--color-stop-2: #77e190;
