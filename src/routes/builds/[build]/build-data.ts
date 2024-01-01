@@ -39,6 +39,10 @@ export type BuildInfo = {
 	};
 	background_image?: string;
 	raid_tip?: string;
+	emote?: {
+		category: 'photo' | 'field';
+		id: number;
+	};
 };
 export const builds: { [x: string]: BuildInfo } = {
 	'gholdengo-iron-bundle-ice': {
@@ -104,7 +108,11 @@ export const builds: { [x: string]: BuildInfo } = {
 		background_image: 'https://scarletviolet.pokemon.com/_images/news/jan_12/p03_02.jpg',
 		raid_tip: /* HTML */ `while <strong class="text-steel">make it rain</strong> is stronger than
 			<strong class="text-steel">flash cannon</strong>, it will need
-			<strong class="text-dark">nasty plot</strong> weaved in between to maximize sp. atk drops.`
+			<strong class="text-dark">nasty plot</strong> weaved in between to maximize sp. atk drops.`,
+		emote: {
+			category: 'field',
+			id: 1
+		}
 	},
 	'frosmoth-iron-bundle-ice': {
 		title: 'frosmoth raid build',
@@ -170,7 +178,11 @@ export const builds: { [x: string]: BuildInfo } = {
 		raid_tip: /* HTML */ `if the raid boss opens with snow, we open with
 			<strong class="text-ice">aurora veil</strong>,
 			<strong class="text-bug">struggle bug</strong> to tera, then steel-type
-			<strong>tera blast</strong>.`
+			<strong>tera blast</strong>.`,
+		emote: {
+			category: 'field',
+			id: 1
+		}
 	},
 	'guardevoir-iron-bundle-ice': {
 		title: 'guardevoir raid build',
@@ -236,6 +248,10 @@ export const builds: { [x: string]: BuildInfo } = {
 				class="text-fire"
 				>sunny day</strong
 			>
-			to remove snow and to stop freeze.`
+			to remove snow and to stop freeze.`,
+		emote: {
+			category: 'field',
+			id: 3
+		}
 	}
 };
